@@ -1,0 +1,296 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+h1 {
+  margin: 0;
+  padding-bottom: 20px;
+  align-items: center;
+  color: #3C3D37;
+  text-align: center;
+  justify-content: space-around;
+}
+
+@media(max-width:768px){
+  .todo-app{
+    width:90%;
+    padding: 15px;
+    margin:80px auto;
+  }
+   #text {
+    width: 70%;
+    font-size: 14px;
+  }
+
+  #add {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .truckWrapper {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  body{
+    background-attachment: fixed;
+  }
+  .todo-app {
+    width: 95%;
+    padding: 15px;
+    margin: 60px auto;
+    
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+  }
+
+  #text {
+    width: 65%;
+    font-size: 13px;
+  }
+
+  #add {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .truckWrapper {
+    transform: scale(0.6);
+  }
+
+  .lampPost {
+    height: 70px;
+  }
+}
+
+.todo-app{
+  width: 400px;
+  background:#f9f4e0;
+  padding: 20px;
+  margin-bottom: 200px;
+  margin-left:500px;
+  margin-top: 200px;
+  margin-right: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#text{
+  width: 75%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  border-style:dashed;
+  border-color: #93b0a8;
+}
+
+#add{
+  padding: 10px;
+  font-size: 16px;
+  color: #FBF3D5;;
+  background-color:  #93b0a8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#add:hover {
+  background-color: #337866;
+  box-shadow: #cfcfcd;
+  border-style:1px  solid  #9CAFAA;
+  
+}
+
+#todo-list{
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.todo-item span {
+  flex-grow: 1;
+}
+
+.button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.complete-btn {
+  background-color: #5ab59b;
+  color: #f9f4e0;
+}
+
+.complete-btn:hover {
+  background-color: #138496;
+}
+
+.delete-btn {
+  background-color: #942833;
+  color:#f9f4e0; 
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.container {
+  width: 2000vw; 
+  height: 100vh;
+  --s: 100px; 
+  --c1: #9CAFAA;
+  --c2: #FBF3D5;
+
+  --_g: var(--c2) 4% 14%, var(--c1) 14% 24%, var(--c2) 22% 34%,
+    var(--c1) 34% 44%, var(--c2) 44% 56%, var(--c1) 56% 66%, var(--c2) 66% 76%,
+    var(--c1) 76% 86%, var(--c2) 86% 96%;
+  background: radial-gradient(
+      100% 100% at 100% 0,
+      var(--c1) 4%,
+      var(--_g),
+      #0008 96%,
+      #0000
+    ),
+    radial-gradient(
+        100% 100% at 0 100%,
+        #0000,
+        #0008 4%,
+        var(--_g),
+        var(--c1) 96%
+      )
+      var(--c1);
+  background-size: var(--s) var(--s);
+  margin:0px;
+  
+} 
+
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  margin: 0;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+  animation: moveTruck 5s linear infinite; 
+}
+
+/* truck upper body */
+.truckBody {
+  width: 150px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(3px);
+  }
+  100% {
+      transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height:fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+  
+}
+
+.truckTires svg {
+  width: 28px;
+}
+
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: 90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+      transform: translateX(0px);
+  }
+  100% {
+      transform: translateX(-350px);
+  }
+}
+
+@keyframes moveTruck {
+  0% {
+      transform: translateX(-500px); 
+  }
+  100% {
+      transform: translateX(300%); 
+  }
+}
+
+
